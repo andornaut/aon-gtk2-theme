@@ -1,0 +1,34 @@
+###############################################################################
+# Scale
+###############################################################################
+
+style "scale" = "default" {
+	GtkScale::slider-length		= 14
+	GtkScale::slider-width		= 14
+	GtkScale::trough-side-details 	= 1
+	bg[NORMAL] = @selected_bg_color
+	bg[PRELIGHT] = @selected_bg_color
+	bg[SELECTED] = @selected_bg_color
+
+	engine "murrine" 
+	{ 
+		roundness				= 12
+		#contrast 				= 0.9
+		#gradient_shades 		= {0.95, 1.0, 1.0, 1.08}
+		trough_shades 			= { 0.8, 1.0 }
+		trough_border_shades 	= { 0.8 , 1.0 }
+		border_shades 		 	= { 0.1,0.1 }
+	}
+}
+
+style "hscale" = "scale"
+{
+}
+
+style "vscale" = "scale"
+{
+}
+
+class "GtkScale" 	style "scale"
+class "GtkVScale"   style "vscale"
+class "GtkHScale"   style "hscale"

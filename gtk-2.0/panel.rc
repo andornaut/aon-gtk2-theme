@@ -1,0 +1,45 @@
+################################################################################
+# Panel
+################################################################################
+
+style "panel" = "default"
+{
+	xthickness = 2 
+	ythickness = 0
+
+	bg[NORMAL]		= @tooltip_bg_color
+	bg[ACTIVE]		= @selected_bg_color
+	bg[PRELIGHT]	= @selected_bg_color
+	
+	fg[NORMAL]		= @selected_fg_color
+	fg[ACTIVE]		= lighter(@selected_fg_color)
+	fg[PRELIGHT]	= lighter(@selected_fg_color)
+
+	engine "murrine" {
+		roundness = 0	
+	}
+}
+
+style "smaller-text" = "default"
+{
+	font_name = "7"
+}
+
+style "handle" = "default"
+{
+	#bg[NORMAL] 		= @bg_color
+}
+
+
+# Panel style
+class "*Tray*" 				style "panel"
+class "*tray*" 				style "panel"
+class "PanelAppletFrame" 	style "handle"
+
+#widget_class "*Mail*" 		style "panel"
+widget "*PanelWidget*" 		style "panel"
+widget "*PanelApplet*" 		style "panel"
+widget "*Xfce*Panel*" 		style "panel"
+
+widget_class "*ToolButton*" style "smaller-text"
+widget_class "*Statusbar*" 	style "smaller-text"

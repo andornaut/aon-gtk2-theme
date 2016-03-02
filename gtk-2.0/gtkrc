@@ -1,0 +1,10 @@
+# Documentation: https://wiki.ubuntu.com/Artwork/Documentation/Murrine
+
+include "base.rc"
+include "button-combo-entry.rc"
+include "menu.rc"
+include "other.rc"
+include "panel.rc"
+include "scale.rc"
+include "scrollbar.rc"
+include "tweaks.rc"

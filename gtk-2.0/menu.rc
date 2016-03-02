@@ -1,0 +1,52 @@
+###############################################################################
+# Menu
+###############################################################################
+
+style "menubar" = "default"
+{
+	bg[NORMAL]      = @tooltip_bg_color
+	bg[PRELIGHT] 	= @selected_bg_color
+	bg[SELECTED] 	= @selected_bg_color
+	fg[NORMAL] 	= @selected_fg_color
+}
+
+style "menubar-item" = "wider"
+{
+	engine "murrine" { 
+		roundness = 0
+	}
+}
+
+style "menu" = "wider"
+{
+	bg[NORMAL] 		= @tooltip_bg_color
+	bg[ACTIVE] 		= @tooltip_bg_color
+	bg[INSENSITIVE] = @tooltip_bg_color
+	bg[PRELIGHT] 	= @tooltip_bg_color
+	bg[SELECTED] 	= @selected_bg_color
+
+	#fg[ACTIVE] 		= @selected_fg_color
+	#fg[NORMAL] 		= @selected_fg_color
+	#fg[SELECTED]	= @tooltip_fg_color
+	#fg[PRELIGHT] 	= @tooltip_fg_color
+	#fg[INSENSITIVE] = shade(0.7, @selected_fg_color)
+}
+
+style "menu-item" = "wider"
+{
+	fg[NORMAL] 		= @selected_fg_color
+	fg[ACTIVE] 		= @selected_fg_color
+	fg[SELECTED]	= @tooltip_fg_color
+	fg[PRELIGHT] 	= @tooltip_fg_color
+	fg[INSENSITIVE] = shade(0.7, @selected_fg_color)
+}
+
+style "separator-menu-item" 
+{
+}
+
+widget_class "*<GtkMenuBar>*"           		style "menubar"
+widget_class "*<GtkMenuBar>*<GtkMenuItem>*" 	style "menubar-item"
+widget_class "*<GtkMenu>*"             			style "menu"
+widget_class "*<GtkMenuItem>*"          		style "menu-item"
+widget_class "*<GtkSeparatorMenuItem>*" 		style "separator-menu-item"

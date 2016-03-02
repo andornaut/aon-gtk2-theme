@@ -1,0 +1,61 @@
+###############################################################################
+# Button / Combo / Entry
+###############################################################################
+
+style "button" = "wide" 
+{
+	bg[ACTIVE]                  = shade (0.90, @bg_color)
+	bg[NORMAL]                  = shade (1.15, @bg_color)
+	#bg[PRELIGHT]				= shade (1.13, @selected_bg_color)
+	bg[SELECTED]				= @selected_bg_color
+	bg[INSENSITIVE]				= shade (0.98, @bg_color)
+
+	engine "murrine" 
+	{
+		#border_shades           = {1.1, 0.9}
+		#contrast                = 1.25
+		#gradient_shades         = {1.10,1.0,0.99,0.90}
+		#lightborderstyle		= 1
+		#textstyle               = 1
+	}
+}
+
+style "comboboxentry" = "wider" 
+{
+
+	bg[ACTIVE]                      = shade (0.90, @bg_color)
+	bg[NORMAL]                      = shade (1.15, @bg_color)
+	#bg[PRELIGHT]				    = shade (1.13, @selected_bg_color)
+	bg[SELECTED]					= @selected_bg_color
+	bg[INSENSITIVE]				    = shade (0.98, @bg_color)
+	
+
+	#engine "murrine" { lightborderstyle = 1 }
+}
+
+style "combo" = "comboboxentry" 
+{ 
+	engine "murrine" 
+	{ 
+		#gradient_shades = {1.10,1.0,0.99,0.90} 
+	} 
+}
+
+style "entry" = "wider"
+{
+
+	#GtkWidget	::focus-line-width	= 1
+	#GtkWidget	::focus-padding		= 1
+
+	#bg[ACTIVE]				        = @base_color
+	#bg[NORMAL]				        = @base_color
+	#bg[PRELIGHT]				    = @base_color
+	#bg[SELECTED]				    = @base_color
+	#bg[INSENSITIVE]				    = @bg_color
+}
+
+
+class "GtkEntry"          			style "entry"
+widget_class "*<GtkButton>"         style "button"
+widget_class "*<GtkComboBoxEntry>*" style "comboboxentry"
+widget_class "*<GtkCombo>*"         style "combo"

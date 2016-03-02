@@ -1,0 +1,109 @@
+###############################################################################
+# Other
+###############################################################################
+
+style "frame-title" = "default"
+{
+	#fg[NORMAL] 		= lighter (@fg_color)
+}
+
+style "notebook" = "wide"
+{
+	bg[ACTIVE]   	= @bg_color
+	bg[NORMAL]   	= @base_color
+	bg[SELECTED] 	= @base_color
+	#bg[PRELIGHT] 	= @base_color
+	#bg[INSENSITIVE] = @base_color
+}
+
+style "notify" = "wider"
+{
+	xthickness = 8
+	ythickness = 5
+	bg[NORMAL] 		= "#ccc"
+}
+
+style "progressbar" = "default"
+{
+	#xthickness = 0
+	#ythickness = 0
+
+	#bg[NORMAL]   	= shade (0.9, @bg_color)
+	#bg[SELECTED] 	= @selected_bg_color
+
+	#fg[PRELIGHT] 	= @selected_fg_color
+}
+
+style "radiocheck" = "default"
+{
+	text[NORMAL] = @bg_color
+	text[PRELIGHT] = @base_color
+	#text[SELECTED] = @base_color
+}
+
+style "spinbutton" = "default"
+{
+}
+
+style "statusbar" = "default"
+{
+}
+
+style "tasklist" = "wide"
+{
+}
+
+style "tooltips" = "wider"
+{
+	xthickness = 8
+	ythickness = 5
+	bg[NORMAL] 		= @selected_fg_color
+	#fg[NORMAL] 		= @selected_fg_color
+}
+
+style "treeview" = "default"
+{
+#	bg[SELECTED] 	= @base_color
+}
+
+style "treeview-header" = "default"
+{
+	bg[NORMAL]   	= @bg_color
+	bg[PRELIGHT] 	= @bg_color 
+}
+
+#########################################
+# Matches
+#########################################
+class "*notif*" 				style "notify"
+class "*Notif*" 				style "notify"
+class "GtkRadio*"               style "radiocheck"
+class "GtkCheck*"               style "radiocheck"
+class "GtkWidget"    			style "default"
+class "GtkToolbar"   			style "default" 
+class "GtkRange"     			style "wide"
+class "GtkFrame"     			style "wide"
+class "GtkSeparator" 			style "wide"
+class "GtkSpinButton"  			style "spinbutton"
+
+widget_class "*<GtkNotebook>*<GtkEventBox>" 	style "notebook"
+widget_class "*<GtkNotebook>*<GtkDrawingArea>"  style "notebook"
+widget_class "*<GtkNotebook>*<GtkLayout>"       style "notebook"
+widget_class "*<GtkNotebook>*<GtkLabel>"  		style "notebook"
+widget_class "*<GtkNotebook>"    				style "notebook"
+widget_class "*<GtkStatusbar>*"  				style "statusbar"
+widget_class "*.<GtkFrame>.<GtkLabel>" 			style "frame-title"
+widget_class "*.<GtkTreeView>*"        			style "treeview"
+widget_class "*<GtkProgressBar>"       			style "progressbar"
+
+# Treeview header
+widget_class "*.<GtkTreeView>.<GtkButton>" 		style "treeview-header"
+widget_class "*.<GtkCTree>.<GtkButton>"    		style "treeview-header"
+widget_class "*.<GtkList>.<GtkButton>"     		style "treeview-header"
+widget_class "*.<GtkCList>.<GtkButton>"    		style "treeview-header"
+
+# Workarounds for Evolution
+widget_class "*.ETable.ECanvas"    				style "treeview-header"
+widget_class "*.ETree.ECanvas"    				style "treeview-header"
+
+widget "gtk-tooltip*" 							style "tooltips" 
